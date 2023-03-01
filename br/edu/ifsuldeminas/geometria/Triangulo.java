@@ -1,4 +1,4 @@
-package Geometria;
+package br.edu.ifsuldeminas.geometria;
 
 public class Triangulo extends Geometria {
     

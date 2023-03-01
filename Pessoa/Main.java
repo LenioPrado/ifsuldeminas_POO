@@ -1,6 +1,6 @@
 package Pessoa;
 
-import Geometria.*;
+import br.edu.ifsuldeminas.geometria.*;
 
 public class Main {
 
