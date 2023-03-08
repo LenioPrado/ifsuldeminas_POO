@@ -7,9 +7,8 @@ public class PocosCaldas extends Pizzaria {
     
     @Override
     protected List<String> obterIngredientes() {
-        List<String> ingredientes = new ArrayList<String>();
-        ingredientes.add("Farinha");
-        ingredientes.add("Ovo");
+        List<String> ingredientes = getIngredientes();
+       
         ingredientes.add("Presunto");
         ingredientes.add("Queijo");
         return ingredientes;

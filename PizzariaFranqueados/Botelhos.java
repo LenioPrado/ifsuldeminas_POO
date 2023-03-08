@@ -5,10 +5,14 @@ import java.util.List;
 
 public class Botelhos extends Pizzaria {
 
+    public void MetodoBotelhos(){
+
+    }
+
     @Override
     protected List<String> obterIngredientes() {
-        List<String> ing = new ArrayList<String>();
-        ing.add("Molho");
+        List<String> ing = getIngredientes();
+        ing.add("Azeitona");
         return ing;
     }
 
