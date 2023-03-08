@@ -1,4 +1,5 @@
 package AlunoProfessor;
+
 public class Aluno {
 
     public String nome;

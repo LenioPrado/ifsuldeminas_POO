@@ -1,13 +1,18 @@
 package Pessoa;
+
 public class Pessoa {
     private String cpf;
     private String nome;
 
+    protected void naoAcessivel(){
+        
+    }
+
     @Override
     public boolean equals(Object obj) {
-        // if(!(obj instanceof Pessoa)){
-        //     return false;
-        // }
+        if(!(obj instanceof Pessoa)){
+            return false;
+        }
         
         Pessoa outra = (Pessoa)obj;
         return cpf.equals(outra.cpf);

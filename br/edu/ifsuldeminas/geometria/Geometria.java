@@ -25,11 +25,7 @@ public abstract class Geometria {
         return 0;
     }
 
-    private void calculoIntermediario(){
-
-    }
-
-    protected void auxiliar(){
+    public void auxiliar(){
 
     }
 }

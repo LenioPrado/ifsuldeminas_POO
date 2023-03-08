@@ -1,7 +1,6 @@
 package AlunoProfessor;
-//import Aluno;
 
-public class POO_Aula_2{
+public class MainAlunoProfessor{
     public static void main(String[] args){
         if(args.length > 0){            
             int num1 = Integer.parseInt(args[0]);
