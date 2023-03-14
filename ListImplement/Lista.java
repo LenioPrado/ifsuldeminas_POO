@@ -1,6 +1,6 @@
 package ListImplement;
 
-import PizzariaFranqueados.Pizzaria;
+import Pizza.PizzariaFranqueados.Pizzaria;
 
 public class Lista {
 
