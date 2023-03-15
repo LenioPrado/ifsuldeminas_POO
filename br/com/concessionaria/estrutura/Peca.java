@@ -5,10 +5,9 @@ public class Peca {
     private float valor;
     private String dataCompra;
 
-    public Peca(String nome, float valor, String dataCompra) {
+    public Peca(String nome, float valor) {
         this.nome = nome;
         this.valor = valor;
-        this.dataCompra = dataCompra;
     }
     
     public String getNome() {

@@ -18,6 +18,8 @@ public class Oficina {
     public Oficina(String nomeOficina) {
         this.nomeOficina = nomeOficina;
         this.listaMecanicos = new ArrayList<Mecanico>();
+        this.listaPecas = new ArrayList<Peca>();
+        this.listaVeiculos = new ArrayList<Veiculos>();
     }
 
     public int verificarPecasRevisao(){
@@ -26,11 +28,49 @@ public class Oficina {
         } else {
             for(int cont = 0; cont < listaVeiculos.size(); cont ++){
                 this.pecasNecessarias += new Random().nextInt(1, 4);
-            }
+            }   
             String msg = "São necessárias %d peças para revisar os %d veículos.\n";
             System.out.printf(msg, this.pecasNecessarias, listaVeiculos.size());            
         }
         return this.pecasNecessarias;
+    }
+
+    public boolean realizarRevisaoVeiculos(){
+        if (this.listaVeiculos.size() == 0) {
+            System.out.println("Não há veículos a serem revisados.");
+            return false;
+        } else if (this.pecasNecessarias > this.listaPecas.size()) {
+            System.out.printf(
+                "Não há peças suficientes. Estoque: %d\n", listaPecas.size());
+            return false;
+        } else {
+            int totalCarros = this.listaVeiculos.size();
+            int atendimentoMecanicos = 0;
+            for (Mecanico m : listaMecanicos) {
+                atendimentoMecanicos += m.getCarrosSimultaneos();
+            }
+            if (atendimentoMecanicos >= totalCarros) {
+                exibirDadosRevisao();
+                return true;
+            } else {
+                System.out.println("Não há mecânicos suficientes.");
+                return false;
+            }
+        }
+    }
+
+    private void exibirDadosRevisao(){
+        for (Veiculos v : listaVeiculos) {
+            System.out.printf("Placa: %s\n", v.getPlaca());
+        }
+
+        for (Mecanico m : listaMecanicos) {
+            System.out.printf("Mecanico: %s\n", m.getNome());
+        }
+
+        for (Peca p : listaPecas) {
+            System.out.printf("Peça: %s\n", p.getNome());
+        }
     }
 
     public void adicionarMecanico(Mecanico mecanico){

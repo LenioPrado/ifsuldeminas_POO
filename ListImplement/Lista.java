@@ -4,10 +4,10 @@ import Pizza.PizzariaFranqueados.Pizzaria;
 
 public class Lista {
 
-    private Pizzaria[] lista;    
+    private String[] lista;    
 
     public Lista(int tamanho){
-        lista = new Pizzaria[tamanho];
+        lista = new String[tamanho];
     }
 
     private int obterPosicaoLivre(){
@@ -20,7 +20,7 @@ public class Lista {
         return livre;
     }
 
-    public void adicionar(Pizzaria elemento){
+    public void adicionar(String elemento){
         int indiceLivre = obterPosicaoLivre();
         if(indiceLivre < 0){
             System.out.println("Lista Cheia!");
@@ -41,8 +41,8 @@ public class Lista {
         return contagem;
     }
 
-    public Pizzaria remove(int posicao){
-        Pizzaria elemento = obter(posicao);
+    public String remove(int posicao){
+        String elemento = obter(posicao);
         if(elemento != null)
             lista[posicao] = null;
         else
@@ -51,13 +51,13 @@ public class Lista {
         return elemento;
     }
 
-    public Pizzaria obter(int posicao){
+    public String obter(int posicao){
         if(posicao >= lista.length){
             System.out.println("Posicao Inexistente!");
             return null;
         }
 
-        Pizzaria elemento = lista[posicao];        
+        String elemento = lista[posicao];        
         return elemento;
     }
 }
