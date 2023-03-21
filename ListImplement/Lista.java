@@ -1,13 +1,15 @@
 package ListImplement;
 
-import Pizza.PizzariaFranqueados.Pizzaria;
-
 public class Lista {
+
+    private int tamanhoPadrao = 2;
+    private int tamanhoExpansao = 4;
+    private int totalElementos = 0;
 
     private String[] lista;    
 
-    public Lista(int tamanho){
-        lista = new String[tamanho];
+    public Lista(){
+        lista = new String[tamanhoPadrao];
     }
 
     private int obterPosicaoLivre(){
@@ -23,11 +25,17 @@ public class Lista {
     public void adicionar(String elemento){
         int indiceLivre = obterPosicaoLivre();
         if(indiceLivre < 0){
-            System.out.println("Lista Cheia!");
-            return;
+            int tamanhoAtual = lista.length;
+            String[] nova = new String[lista.length + tamanhoExpansao];
+            System.arraycopy(lista, 0, nova, 0, tamanhoAtual);
+            indiceLivre = tamanhoAtual;
+            lista = nova;            
         }
         
-        lista[indiceLivre] = elemento;        
+        lista[indiceLivre] = elemento; 
+        totalElementos++;
+
+        listar();
     }
 
     public int contar(){
@@ -43,18 +51,32 @@ public class Lista {
 
     public String remove(int posicao){
         String elemento = obter(posicao);
-        if(elemento != null)
+        if (posicao == lista.length - 1) {
             lista[posicao] = null;
-        else
-            System.out.println("Posicao Inexistente!");
-
+        } else {
+            System.arraycopy(lista, posicao + 1, lista, posicao, totalElementos - posicao);
+            lista[totalElementos] = null;
+        }
+                
+        totalElementos--;
+        listar();
         return elemento;
     }
 
-    public String obter(int posicao){
+    public void listar(){
+        String result = "";
+        for (int i = 0; i < lista.length; i++) {
+            result += lista[i];
+            if (i != lista.length - 1) {
+                result += ", ";
+            }
+        }
+        System.out.println(result);
+    }
+
+    public String obter(int posicao) throws IndexOutOfBoundsException{
         if(posicao >= lista.length){
-            System.out.println("Posicao Inexistente!");
-            return null;
+            throw new IndexOutOfBoundsException("Posição inexistente!");
         }
 
         String elemento = lista[posicao];        
