@@ -1,6 +1,5 @@
 package br.edu.ifsuldeminas;
 
-import br.edu.ifsuldeminas.financeiro.Pagamentos;
 import br.edu.ifsuldeminas.geometria.*;
 
 public class Main {

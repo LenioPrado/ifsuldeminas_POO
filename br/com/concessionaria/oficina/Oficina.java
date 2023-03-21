@@ -121,10 +121,10 @@ public class Oficina {
     public void setListaPecas(List<Peca> listaPecas) {
         this.listaPecas = listaPecas;
     }
-    public List<Veiculo> getListaVeiculos() {
+    public List<Veiculos> getListaVeiculos() {
         return listaVeiculos;
     }
-    public void setListaVeiculos(List<Veiculo> listaVeiculos) {
+    public void setListaVeiculos(List<Veiculos> listaVeiculos) {
         this.listaVeiculos = listaVeiculos;
     }
     public int getPecasNecessarias() {

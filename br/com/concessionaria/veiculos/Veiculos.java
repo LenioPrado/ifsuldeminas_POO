@@ -1,7 +1,5 @@
 package br.com.concessionaria.veiculos;
 
-import br.com.concessionaria.funcionarios.Mecanico;
-
 public class Veiculos {
     private String placa;
     private int ano;

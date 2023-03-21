@@ -1,6 +1,5 @@
 package Pizza.PizzariaFranqueados;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Botelhos extends Pizzaria {
