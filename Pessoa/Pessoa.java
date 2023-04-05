@@ -4,8 +4,13 @@ public class Pessoa {
     private String cpf;
     private String nome;
 
-    protected void naoAcessivel(){
-        
+    public Pessoa(String nome) {
+        this.nome = nome;
+    }
+
+    @Override
+    public String toString() {
+        return this.getNome();
     }
 
     @Override
@@ -15,7 +20,7 @@ public class Pessoa {
         }
         
         Pessoa outra = (Pessoa)obj;
-        return cpf.equals(outra.cpf);
+        return nome.equals(outra.nome);
     }
 
     public String getNome() {

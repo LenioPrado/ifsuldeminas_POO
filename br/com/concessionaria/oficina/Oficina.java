@@ -133,4 +133,9 @@ public class Oficina {
     public void setPecasNecessarias(int pecasNecessarias) {
         this.pecasNecessarias = pecasNecessarias;
     }
+
+    @Override
+    public String toString() {
+        return this.getNomeOficina();
+    }
 }
