@@ -2,6 +2,8 @@ package com.example.demo.models;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
@@ -10,6 +12,7 @@ import jakarta.persistence.Table;
 public class Tutorial {
     
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
     @Column(name = "name")
@@ -17,6 +20,28 @@ public class Tutorial {
 
     @Column(name = "description")
     private String description;
+
+    @Column(name = "published")
+    private boolean published;
+
+    @Column(name = "title")
+    private String title;
+
+    public boolean isPublished() {
+        return published;
+    }
+
+    public void setPublished(boolean published) {
+        this.published = published;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
     public long getId() {
         return id;
