@@ -6,6 +6,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "MainLista",
+            "request": "launch",
+            "mainClass": "ListaUnicamp.MainLista",
+            "projectName": "Codigos_4b7246f3"
+        },
+        {
+            "type": "java",
+            "name": "P",
+            "request": "launch",
+            "mainClass": "ListaUnicamp.P",
+            "projectName": "Codigos_4b7246f3"
+        },
+        {
+            "type": "java",
+            "name": "MainListaUnicamp",
+            "request": "launch",
+            "mainClass": "ListaUnicamp.MainListaUnicamp",
+            "projectName": "Codigos_4b7246f3"
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}"

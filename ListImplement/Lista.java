@@ -58,7 +58,8 @@ public class Lista<T> {
     }
 
     public boolean contem(T elemento){
-        obter()
+        int posicao = indiceDe(elemento);
+        return posicao >= 0;
     }
 
     public boolean remove(T elemento){
