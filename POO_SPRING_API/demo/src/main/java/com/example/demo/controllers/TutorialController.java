@@ -1,10 +1,12 @@
 package com.example.demo.controllers;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -29,8 +31,8 @@ public class TutorialController {
     }
 
     @GetMapping("/tutorial")
-    public List<Tutorial> getInformations(){
-        return repository.findAll();   
+    public ResponseEntity<List<Tutorial>> getInformations(){
+        return new ResponseEntity<List<Tutorial>>(repository.findAll(), HttpStatus.OK) ;   
     }
 
     @PostMapping("/tutorial")
@@ -39,7 +41,7 @@ public class TutorialController {
     }
 
     @PutMapping("/tutorial/{indice}")
-    public void updateInformation(@PathVariable("indice") long indice, @RequestBody Tutorial tutorial){
+    public ResponseEntity<HttpStatus> updateInformation(@PathVariable("indice") long indice, @RequestBody Tutorial tutorial){
         Optional<Tutorial> tutorialData = repository.findById(indice);
         
         if (tutorialData.isPresent()) {
@@ -49,8 +51,11 @@ public class TutorialController {
             t.setTitle(tutorial.getTitle());
             t.setPublished(tutorial.isPublished());
             repository.save(t);
-        }
+            return new ResponseEntity<HttpStatus>(HttpStatus.OK);
+        } 
         
+        return new ResponseEntity<HttpStatus>(HttpStatus.NOT_ACCEPTABLE);
+       
     }
 
     @DeleteMapping("/tutorial/{indice}")
