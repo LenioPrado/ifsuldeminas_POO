@@ -1,9 +1,13 @@
 package br.edu.ifsuldeminas.oficina.oficina.models;
 
+import java.util.List;
+
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 @Entity(name = "vehicle")
 public class Veiculo {
@@ -15,7 +19,8 @@ public class Veiculo {
     private String placa;
 
     private int ano;
-
+    
+    @Column(nullable = false)
     private String modelo;
 
     private String numeroChassi;
@@ -24,6 +29,25 @@ public class Veiculo {
 
     private int kmRodados;
 
+    @OneToMany(mappedBy = "veiculo")
+    private List<Peca> pecas;
+
+    public List<Peca> getPecas() {
+        return pecas;
+    }
+
+    public void setPecas(List<Peca> pecas) {
+        this.pecas = pecas;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+    
     public String getPlaca() {
         return placa;
     }
